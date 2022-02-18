@@ -111,6 +111,7 @@ export class Auth {
     if (this.config?.callbacks?.redirect) {
       redirect = await this.config.callbacks.redirect(redirect);
     }
+    console.log("redirect", redirect);
     return redirect;
   }
 
