@@ -132,7 +132,7 @@ export class Auth {
     return {
       status: 302,
       headers: {
-        "set-cookie": `svelteauthjwt=${jwt}; Path=/; HttpOnly; Expires=${(new Date().getTime() + (1000 * 60 * 24 * 14))}`,
+        "set-cookie": `svelteauthjwt=${jwt}; Path=/; HttpOnly; Max-Age=${(60 * 60 * 24 * 14)}`,
         Location: redirect,
       },
     };
@@ -149,7 +149,7 @@ export class Auth {
       if (method === "POST") {
         return {
           headers: {
-            "set-cookie": `svelteauthjwt=${jwt}; Path=/; HttpOnly; Expires=${(new Date().getTime() + (1000 * 60 * 24 * 14))}`,
+            "set-cookie": `svelteauthjwt=${jwt}; Path=/; HttpOnly; Max-Age=${(60 * 60 * 24 * 14)}`,
           },
           body: {
             signout: true,
@@ -162,7 +162,7 @@ export class Auth {
       return {
         status: 302,
         headers: {
-          "set-cookie": `svelteauthjwt=${jwt}; Path=/; HttpOnly; Expires=${(new Date().getTime() + (1000 * 60 * 24 * 14))}`,
+          "set-cookie": `svelteauthjwt=${jwt}; Path=/; HttpOnly; Max-Age=${(60 * 60 * 24 * 14)}`,
           Location: redirect,
         },
       };
